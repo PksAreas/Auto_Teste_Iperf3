@@ -3,17 +3,18 @@
 #================================
 #AUTOR: PATRICK AREAS          ||
 #COAUTOR: GUILHERME GUIMARÃES  ||
-#DATA: 31/05/2024              ||
-#VERSION: 1.3                  ||
+#DATA: 04/06/2024              ||
+#VERSION: 2.0                  ||
 #Obs: Script criado na intenção||
 #    de agilizar os testes ho- ||
 #    mologatorios de novos     ||
 #    equipamentos.             ||
 #================================
 
-USER=$(whoami)
+USER=$(whoami) #Usado para criar/ler/escrever na pasta correta do Usuario logado
 
-ARQUIVO1=$(cat /home/$USER/resultado_iperf3/duplex/down.txt | grep SUM | tail -2)
+#O bloco a seguir Armazena os testes que estão em txt em variaves
+ARQUIVO1=$(cat /home/$USER/resultado_iperf3/duplex/down.txt | grep SUM | tail -2) 
 ARQUIVO2=$(cat /home/$USER/resultado_iperf3/duplex/up.txt | grep SUM | tail -2)
 ARQUIVO3=$(cat /home/$USER/resultado_iperf3/duplex/google.txt | tail -3)
 ARQUIVO4=$(cat /home/$USER/resultado_iperf3/duplex/router.txt | tail -3)
@@ -66,4 +67,4 @@ sleep 1
 echo "========================================SPEEDTEST BY OOKLA=========================================="
 echo "$ARQUIVO11"
 
-read 
+read #Usado para não fechar o terminal, caso o teste esteja sendo realizado em um SO com GUI
